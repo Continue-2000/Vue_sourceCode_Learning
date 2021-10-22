@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="list">
+
+        </ul>
+    </div>
+
+    <script>
+        let students = [{
+                name: '小明',
+                age: 18
+            },
+            {
+                name: '小红',
+                age: 19
+            },
+            {
+                name: '小华',
+                age: 20
+            },
+        ];
+        let list = document.querySelector('.list');
+        for (let i = 0; i < students.length; i++) {
+            list.innerHTML += [
+                '            <li>',
+                '                <p>我是' + students[i].name + '</p>',
+                '                <p>我今年' + students[i].age + '岁了</p>',
+                '            </li>'
+            ].join('')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="list">
+
+        </ul>
+    </div>
+    <script type="module">
+        import Mustache from "../libjs/mustache.js"
+        console.log(Mustache);
+        let templateStr = `
+        {{#arr}}
+                <li>
+                  <p>姓名{{name}}</p>
+                  <p>年龄{{age}}</p>
+                  <ol>
+                  {{#hobbies}}
+                  <li>{{.}}</li>
+                  {{/hobbies}}
+                </ol>
+                </li>
+        {{/arr}}        `
+                ;
+        let data = {
+            arr:[
+            {
+            name:'xy',
+            age:21,
+            hobbies:['唱歌','玩游戏']
+            },
+            {
+            name:'wsq',
+            age:23,
+            hobbies:['看小说','玩游戏']
+            }
+        ]
+        }
+        let list = document.querySelector('.list');
+        let domStr = Mustache.render(templateStr, data);
+        list.innerHTML = domStr;
+    </script>
+</body>
+
+</html>
